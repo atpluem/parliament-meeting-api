@@ -18,7 +18,9 @@
 	$personalID = null;
 	$conferenceID - null;
 	$startime = null;
+	$starttimemin = null;
 	$endtime = null;
+	$endtimemin = null;
 
 	$data = file_get_contents("php://input");
 	$array = json_decode($data, true);
@@ -37,13 +39,21 @@
 			$starttime = $output;
 			echo $starttime."/n";
 		}
+		elseif($key === 'starttimemin') {
+			$starttimemin = $output;
+			echo $starttimemin."/n";
+		}
 		elseif($key === 'endtime') {
 			$endtime = $output;
 			echo $endtime."/n";
 		}
+		elseif($key === 'endtimemin') {
+			$endtimemin = $output;
+			echo $endtimemin."/n";
+		}
 	}
 
-	$sql = "INSERT INTO VALUES ($personalID, $conferenceID, $starttime, $endtime) ";
+	$sql = "INSERT INTO VALUES ($personalID, $conferenceID, $starttime:$starttimemin, $endtime:$endtimemin); ";
 	
 	if ($conn -> query($sql) === ture) {
 		echo "New record created successfully";
