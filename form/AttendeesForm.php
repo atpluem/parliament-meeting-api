@@ -53,7 +53,7 @@
 		}
 	}
 
-	$sql = "INSERT INTO VALUES ($personalID, $conferenceID, '$starttime:$starttimemin', '$endtime:$endtimemin'); ";
+	$sql = "INSERT INTO VALUES ($personalID, $conferenceID, '$starttime:$starttimemin', '$endtime:$endtimemin')";
 	
 	if ($conn -> query($sql) === ture) {
 		echo "New record created successfully";
