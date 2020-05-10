@@ -20,6 +20,38 @@
 	$startime = null;
 	$endtime = null;
 
-	$sql = "INSERT INTO "
+	$data = file_get_contents("php://input");
+	$array = json_decode($data, true);
+	print_r($array);
+	
+	foreach($array[jsonform] as $key => $output) {
+		if($key === 'personalID') {
+			$personalID = $output;
+			echo $personalID."/n";
+		}
+		elseif($key === 'conferenceID') {
+			$conferenceID = $output;
+			echo $conferenceID."/n";
+		}
+		elseif($key === 'starttime') {
+			$starttime = $output;
+			echo $starttime."/n";
+		}
+		elseif($key === 'endtime') {
+			$endtime = $output;
+			echo $endtime."/n";
+		}
+	}
+
+	$sql = "INSERT INTO VALUES ($personalID, $conferenceID, $starttime, $endtime) ";
+	
+	if ($conn -> query($sql) === ture) {
+		echo "New record created successfully";
+	}
+	else {
+		echo "Error : " . $sql . "<br>" . $conn -> error;
+	}
+	
+	$conn -> close();
 
 ?>
