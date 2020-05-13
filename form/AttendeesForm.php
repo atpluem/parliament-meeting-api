@@ -60,11 +60,11 @@
 
 	$sql = "INSERT INTO attendees (PersonalID, ConferenceID, AttendantTime, LeaveTime) VALUES ($personalID, $conferenceID, '$conferencedate-$starttime:$starttimemin', '$conferencedate-$endtime:$endtimemin')";
 	
-	if ($conn -> query($sql) === TRUE) {
+	if ($conn -> query($sql) === true) {
 		echo "New record created successfully";
 	}
 	else {
-		echo "Error : " . $sql . "<br>" . $conn -> error;
+		echo "Error : " . $sql . "/n" . $conn -> error;
 	}
 	
 	$conn -> close();
