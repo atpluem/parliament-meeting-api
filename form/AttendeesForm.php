@@ -16,7 +16,8 @@
 	}
 	
 	$personalID = null;
-	$conferenceID - null;
+	$conferenceID = null;
+	$conferencedate = null;
 	$startime = null;
 	$starttimemin = null;
 	$endtime = null;
@@ -34,6 +35,10 @@
 		elseif($key === 'conferenceID') {
 			$conferenceID = $output;
 			echo $conferenceID."/n";
+		}
+		elseif($key === 'conferencedate') {
+			$conferencedate = $output;
+			echo $conferencedate."/n";
 		}
 		elseif($key === 'starttime') {
 			$starttime = $output;
@@ -53,7 +58,7 @@
 		}
 	}
 
-	$sql = "INSERT INTO attendees (PersonalID, ConferenceID, AttendantTime, LeaveTime) VALUES ($personalID, $conferenceID, '$starttime:$starttimemin', '$endtime:$endtimemin')";
+	$sql = "INSERT INTO attendees (PersonalID, ConferenceID, AttendantTime, LeaveTime) VALUES ($personalID, $conferenceID, '$conferencedate-$starttime:$starttimemin', '$conferencedate-$endtime:$endtimemin')";
 	
 	if ($conn -> query($sql) === ture) {
 		echo "New record created successfully";
