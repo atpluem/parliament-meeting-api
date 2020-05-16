@@ -4,7 +4,7 @@
 $postdata = file_get_contents("php://input");
 $personalid=$_GET["username"];
  
-$sql="SELECT  BuildingName,COUNT(*) AS 'UseTimesIN(1900-2000)'
+$sql="SELECT  BuildingName,COUNT(*) AS 'UseTimesIN1900-2000'
 FROM CouncilConference 
 WHERE Dates >= '1900-00-00' AND Dates <= '2000-12-31'
 GROUP BY BuildingName;";
