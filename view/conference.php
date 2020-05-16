@@ -1,7 +1,7 @@
 <?php
   include_once("../config.php");
  
-$sql="select cc.ConferenceID, cc.ConferenceTopic, ct.ConferenceTypeName, cc.Dates, cm.Surname, cm.Lastname, cc.BuildingName 
+$sql="select cc.ConferenceID, cc.ConferenceTopic, ct.ConferenceTypeName, cc.StartTime, cc.EndTime, cc.Dates, cm.Surname, cm.Lastname, cc.BuildingName 
 FROM councilconference cc JOIN conferencetype ct JOIN councilmember cm
 ON cc.ConferenceTypeID = ct.ConferenceTypeID AND cm.PersonalID = cc.ChairmanID;";
  
