@@ -1,8 +1,9 @@
 <?php
   include_once("../config.php");
  
-$sql="select m.Surname, m.Lastname, p.CouncilPosName, p.CouncilPosDetail
-from councilmember m JOIN councilpos p ON m.CouncilPosID = p.CouncilPosID;";
+$sql="select cc.ConferenceID, cc.ConferenceTopic, ct.ConferenceTypeName, cc.Dates, cm.Surname, cm.Lastname, cc.BuildingName 
+FROM councilconference cc JOIN conferencetype ct JOIN councilmember cm
+ON cc.ConferenceTypeID = ct.ConferenceTypeID AND cm.PersonalID = cc.ChairmanID;";
  
 if($result = mysqli_query($mysqli,$sql))
 {
