@@ -51,6 +51,8 @@
 	}else{
 		$EndArguemntTime = "'".$array['endtime'].":".$array['endtimemin'].":".$array['endtimesec']."'";
 	}
+	
+	
 	//print_r($StartArgumentTime);
 //	print_r($EndArguemntTime);
 			

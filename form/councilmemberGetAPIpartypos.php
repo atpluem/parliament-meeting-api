@@ -12,12 +12,13 @@ $conn = mysqli_connect($servername,$dbusername,$dbpassword,$dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-$sql = "SELECT PartyPosName FROM partypos ";
+$sql = "SELECT PartyPosID,PartyPosName FROM partypos ";
 $result = mysqli_query($conn,$sql) or die("Bad query: $sql");
 
 if($result && $result->num_rows > 0){
     while($row = $result->fetch_assoc()){
         $json_data[] = array(
+            "PartyPosID" => $row['PartyPosID'],   
             "PartyPosName" => $row['PartyPosName'],         
         );
     }

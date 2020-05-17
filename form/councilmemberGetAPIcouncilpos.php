@@ -13,14 +13,13 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 //councilpos
-$sql = "SELECT CouncilPosName FROM councilpos ";
+$sql = "SELECT CouncilPosID,CouncilPosName FROM councilpos ";
 $result = mysqli_query($conn,$sql) or die("Bad query: $sql");
-
-
 
 if($result && $result->num_rows > 0){
     while($row = $result->fetch_assoc()){
         $json_data[] = array(
+            "CouncilPosID" => $row['CouncilPosID'],   
             "CouncilPosName" => $row['CouncilPosName'],   
         );
     }

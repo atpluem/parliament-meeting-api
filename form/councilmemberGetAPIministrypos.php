@@ -12,13 +12,14 @@ $conn = mysqli_connect($servername,$dbusername,$dbpassword,$dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-//councilpos
-$sql = "SELECT MinistryPosName FROM ministrypos";
+//ministrypos
+$sql = "SELECT MinistryPosID,MinistryPosName FROM ministrypos";
 $result = mysqli_query($conn,$sql) or die("Bad query: $sql");
 
 if($result && $result->num_rows > 0){
     while($row = $result->fetch_assoc()){
         $json_data[] = array(
+            "MinistryPosID" => $row['MinistryPosID'],   
             "MinistryPosName" => $row['MinistryPosName'],   
         );
     }

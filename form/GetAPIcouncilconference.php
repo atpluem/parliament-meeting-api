@@ -13,14 +13,13 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 //conferencetype
-$sql = "SELECT * FROM conferencetype ";
+$sql = "SELECT ConferenceID FROM councilconference ";
 $result = mysqli_query($conn,$sql) or die("Bad query: $sql");
 
 if($result && $result->num_rows > 0){
     while($row = $result->fetch_assoc()){
         $json_data[] = array(
-            "ConferenceTypeID" => $row['ConferenceTypeID'],   
-            "ConferenceTypeName" => $row['ConferenceTypeName'],   
+            "ConferenceID" => $row['ConferenceID'],   
         );
     }
 }
