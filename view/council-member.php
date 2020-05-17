@@ -3,7 +3,7 @@
  
 $postdata = file_get_contents("php://input");
  
-$sql="select m.Surname, m.Lastname, p.CouncilPosName, p.CouncilPosDetail
+$sql="select m.PersonalID, m.Surname, m.Lastname, p.CouncilPosName, p.CouncilPosDetail
 from councilmember m JOIN councilpos p ON m.CouncilPosID = p.CouncilPosID;";
  
 if($result = mysqli_query($mysqli,$sql))
