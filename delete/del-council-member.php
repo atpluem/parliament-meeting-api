@@ -11,4 +11,6 @@
   } else {
     echo "Error deleting record: " . $mysqli->error;
   }
+
+  $mysqli->close();
 ?>
