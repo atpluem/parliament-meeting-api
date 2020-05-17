@@ -7,6 +7,7 @@
   WHERE PersonalID = $personalid;";
   
   if($mysqli->query($sql) === TRUE) {
+    print_r("Record deleted successfully");
     echo "Record deleted successfully";
   } else {
     echo "Error deleting record: " . $mysqli->error;
