@@ -7,6 +7,6 @@
   WHERE PersonalID = $personalid;";
   
   if(isset($postdata)) {
-    $res = mysql_query($delete) or die ("FAILED" .mysql_error());
+    $res = mysqli_query($mysqli, $delete) or die ("FAILED" .mysql_error());
   }
 ?>
