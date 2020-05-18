@@ -12,7 +12,7 @@
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
 	}
-  
+  $PersonalID = null;
   $Password = null;
   $NewPassword = null;
 
@@ -27,10 +27,13 @@
     else if($key === 'newpassword') {
       $NewPassword = $output;
     }
+		else if($key === 'personalid') {
+      $PersonalID = $output;
+    }
 	} 
 
 $sql = "UPDATE councilmember
-SET Password = $NewPassword WHERE Password = $Password";
+SET Password = $NewPassword WHERE Password = $Password AND PersonalID=$PersonalID";
 
 if ($conn->query($sql) === TRUE) {
     echo "Change password successfully";
