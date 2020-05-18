@@ -12,6 +12,6 @@
 //   }
 
   if(isset($personalid)){
-    $res = mysql_query($sql) or die ("FAILED" .mysql_error());
+    $res = mysqli_query($mysqli, $sql) or die ("FAILED" .mysql_error());
   }
 ?>
