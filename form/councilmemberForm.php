@@ -5,10 +5,10 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 header('Content-type: application/json');
 
 $servername = "us-cdbr-east-06.cleardb.net";
-$dbusername = "b6f44590f309b7";
-$dbpassword = "df25ea47";
-$dbname = "heroku_081a4c7d902d08f";
-$conn = mysqli_connect($servername, $dbusername, $dbpassword, $dbname);
+	$dbusername = "b6f44590f309b7";
+	$dbpassword = "df25ea47";
+	$dbname = "heroku_081a4c7d902d08f";
+	$conn = mysqli_connect($servername,$dbusername,$dbpassword,$dbname);
 if ($conn->connect_error) {
 	die("Connection failed: " . $conn->connect_error);
 }
