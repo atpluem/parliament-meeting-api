@@ -6,7 +6,7 @@
   $sql = "DELETE FROM councilmember
   WHERE PersonalID = $personalid;";
   
-  if($mysqli->query($sql) === TRUE) {
+  if($mysqli->query($sql) === true) {
     echo "Record deleted successfully";
   } else {
     echo "Error deleting record: " . $mysqli->error;
