@@ -2,6 +2,7 @@
   include_once("../config.php");
   $postdata = file_get_contents("php://input");
   $personalid=$_GET["username"];
+  echo($personalid);
   
   $sql = "DELETE FROM councilmember WHERE PersonalID = $personalid;";
   
