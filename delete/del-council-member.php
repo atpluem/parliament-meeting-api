@@ -4,12 +4,6 @@
   $personalid=$_GET["username"];
   
   $sql = "DELETE FROM councilmember WHERE PersonalID = $personalid;";
-  
-//   if($mysqli->query($sql) === true) {
-//     echo "Record deleted successfully";
-//   } else {
-//     echo "Error deleting record: " . $mysqli->error;
-//   }
 
   if(isset($personalid)){
     $res = mysqli_query($mysqli, $sql) or die ("FAILED" .mysql_error());
