@@ -19,7 +19,6 @@
 
 	$data = file_get_contents("php://input");
 	$array = json_decode($data,true);
-	print_r($array);
   
 	foreach($array[jsonform] as $key => $output) {
 		if($key === 'password') {
@@ -36,8 +35,8 @@
 $sql = "UPDATE councilmember
 SET Password = $NewPassword WHERE Password = $Password AND PersonalID = $PersonalID";
 
-if ($conn->query($sql) > 0) {
-    echo "Change password successfully";
+if ($conn->query($sql) === TRUE) {
+	print_r("Change password successfully",$conn);
 } else {
      echo "Error: " . $sql . "<br>" . $conn->error;
 }
