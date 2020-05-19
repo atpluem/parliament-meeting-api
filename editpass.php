@@ -12,9 +12,10 @@
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
 	}
-  $PersonalID = null;
-  $Password = null;
-  $NewPassword = null;
+
+	$PersonalID = null;
+	$Password = null;
+	$NewPassword = null;
 
 	$data = file_get_contents("php://input");
 	$array = json_decode($data,true);
@@ -24,16 +25,16 @@
 		if($key === 'password') {
 			$Password = $output;
 		}
-    else if($key === 'newpassword') {
-      $NewPassword = $output;
-    }
+    		else if($key === 'newpassword') {
+      			$NewPassword = $output;
+    		}	
 		else if($key === 'personalid') {
-      $PersonalID = $output;
-    }
+      			$PersonalID = $output;
+    		}
 	} 
 
 $sql = "UPDATE councilmember
-SET Password = $NewPassword WHERE Password = $Password AND PersonalID=$PersonalID";
+SET Password = $NewPassword WHERE Password = $Password AND PersonalID = $PersonalID";
 
 if ($conn->query($sql) === TRUE) {
     echo "Change password successfully";
