@@ -43,7 +43,11 @@ if ($result = mysqli_query($conn,$sql)) {
 	$row = mysqli_fetch_assoc($result);
 	print_r($row);
 	if($row != ''){
+		print("success")
 		$conn->query($sqlupdate);
+	}
+	else {
+		print("fail");
 	}
 } else {
      echo "Error: " . $sql . "<br>" . $conn->error;
