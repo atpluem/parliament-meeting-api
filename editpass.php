@@ -39,6 +39,7 @@ $sqlupdate = "UPDATE councilmember
 SET Password = $NewPassword WHERE Password = $Password AND PersonalID = $PersonalID";
 
 if ($conn->query($sql) > 0) {
+	print_r($conn);
 	$conn->query($sqlupdate);
 } else {
      echo "Error: " . $sql . "<br>" . $conn->error;
