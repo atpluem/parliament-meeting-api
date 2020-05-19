@@ -42,7 +42,7 @@ SET Password = $NewPassword WHERE Password = $Password AND PersonalID = $Persona
 if ($result = mysqli_query($conn,$sql)) {
 	$row = mysqli_fetch_assoc($result);
 	print_r($row);
-	if($row != ''){
+	if($row != null){
 		print("success")
 		$conn->query($sqlupdate);
 	}
