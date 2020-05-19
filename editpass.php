@@ -38,8 +38,9 @@ AND Password = $Password";
 $sqlupdate = "UPDATE councilmember
 SET Password = $NewPassword WHERE Password = $Password AND PersonalID = $PersonalID";
 
-if ($conn->query($sql) > 0) {
-	print_r("test");
+
+if ($result = mysqli_query($conn,$sql)) {
+	print_r($result);
 	$conn->query($sqlupdate);
 } else {
      echo "Error: " . $sql . "<br>" . $conn->error;
