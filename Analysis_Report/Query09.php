@@ -6,7 +6,7 @@ $personalid=$_GET["username"];
  
 $sql="SELECT m.surname AS Speaker_Surname,m.lastname AS Speaker_Lastname,
        m2.surname AS Argumentator_Surname,m2.lastname AS Argumentator_Lastname
-       ,TIME(SUM(EndArgumentTime-StartArgumentTime)) AS Time
+       ,SEC_TO_TIME(SUM(EndArgumentTime-StartArgumentTime)) AS Time
 FROM subtopic s,councilmember m,argumentation a,councilmember m2
 WHERE s.SpeakerID = m.personalID AND s.subtopicName IN 
                                        (SELECT subtopicName
