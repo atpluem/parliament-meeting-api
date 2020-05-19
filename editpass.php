@@ -32,11 +32,14 @@
     		}
 	} 
 
-$sql = "UPDATE councilmember
+$sql = "SELECT Password FROM councilmember WHERE PersonalID = $PersonalID 
+AND Password = $Password";
+
+$sqlupdate = "UPDATE councilmember
 SET Password = $NewPassword WHERE Password = $Password AND PersonalID = $PersonalID";
 
 if ($conn->query($sql) === TRUE) {
-	print_r("Change password successfully");
+	$conn->query($sqlupdate);
 } else {
      echo "Error: " . $sql . "<br>" . $conn->error;
 }
