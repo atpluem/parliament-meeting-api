@@ -46,9 +46,6 @@ if ($result = mysqli_query($conn,$sql)) {
 		print_r("success");
 		$conn->query($sqlupdate);
 	}
-	else {
-		print_r("fail")
-	}
 
 } else {
      echo "Error: " . $sql . "<br>" . $conn->error;
