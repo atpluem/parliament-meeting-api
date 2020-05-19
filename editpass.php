@@ -41,8 +41,13 @@ SET Password = $NewPassword WHERE Password = $Password AND PersonalID = $Persona
 
 if ($result = mysqli_query($conn,$sql)) {
 	$row = mysqli_fetch_assoc($result);
-	print_r($row[Password]);
+	if($row[Password] == $Password){
+		print_r("success");
 		$conn->query($sqlupdate);
+	}
+	else {
+		print_r("fail")
+	}
 
 } else {
      echo "Error: " . $sql . "<br>" . $conn->error;
