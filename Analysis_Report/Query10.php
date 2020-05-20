@@ -6,6 +6,7 @@ $personalid=$_GET["username"];
  
 $sql="SELECT 	EducationDegree,count(*) AS Number
 FROM   councilmember
+WHERE educationdegree IS NOT NULL
 GROUP BY educationdegree
 ORDER BY Number DESC;";
  
